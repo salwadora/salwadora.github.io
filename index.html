@@ -1,1 +1,59 @@
-When we can go to Abugadaluza?
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>salwadora & jfkz meetup</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href='//fonts.googleapis.com/css?family=Lato:400,300,100,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="assets/styles/normalize.css" />
+	<link rel="stylesheet" href="assets/styles/styles.css" />
+</head>
+
+<body>
+
+	<!-- Video Markup -->
+	<section class="masthead">
+		<video class="masthead-video" autoplay loop poster="//dummyimage.com/1x1/000000/fff.png">
+			<source src="assets/videos/amsterdam.mp4" type="video/mp4">
+			<source src="assets/videos/amsterdam.webm" type="video/webm">
+		</video>
+		<div class="masthead-overlay"></div>
+		<h1>salwadora<span id="clock">What Are You Waiting For?</span></h1>
+		<a class="masthead-video-credit" href="http://www.crematorium.ru/archive/video" target="_blank">
+			<span>Video: Амстердам</span>
+			<span>by Крематорий</span>
+		</a>
+	</section>
+	<!-- Load Scripts -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="covervid.min.js"></script>
+	<script src="assets/scripts/jquery.countdown.min.js"></script>
+	<script src="assets/scripts/scripts.js"></script>
+	
+
+	<!-- Call CoverVid -->
+	<script type="text/javascript">
+		// Video
+		coverVid(document.querySelector('.masthead-video'), 640, 360);
+		// Countdown
+		$(document).ready(function(){
+			var username = Math.random() > 0.9 ? 'jfkz' : 'salwadora';
+     		$('h1').html(username
+     			+ '<span id="clock">What Are You Waiting For?</span>');
+ 			$(document).attr('title', username);
+			$('#clock').countdown('2017/03/09')
+				.on('update.countdown', function(event) {
+  					$(this).html(event.strftime('%D days %H:%M:%S remain'));
+				})
+	    		.on('finish.countdown', function(event) {
+	    			$('#clock').text('What Are You Waiting For?');
+ 	    		});
+		});
+	</script>
+
+</body>
+
+</html>
