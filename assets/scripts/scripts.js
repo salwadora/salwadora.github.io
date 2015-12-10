@@ -1,3 +1,5 @@
+// Fork me: https://github.com/salwadora/salwadora.github.io
+
 fullscreen();
 $(window).resize(fullscreen);
 $(window).scroll(headerParallax);
@@ -25,3 +27,20 @@ function headerParallax() {
 		});
 	}
 }
+
+// Video
+coverVid(document.querySelector('.masthead-video'), 640, 360);
+// Countdown
+$(document).ready(function(){
+	var username = Math.random() > 0.9 ? 'jfkz' : 'salwadora';
+ 	$('h1').html(username
+ 		+ '<span id="clock">What Are You Waiting For?</span>');
+ 	$(document).attr('title', username);
+	$('#clock').countdown('2017/03/09')
+		.on('update.countdown', function(event) {
+  			$(this).html(event.strftime('%D days %H:%M:%S remain'));
+		})
+		.on('finish.countdown', function(event) {
+			$('#clock').text('What Are You Waiting For?');
+ 		});
+});
